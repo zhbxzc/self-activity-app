@@ -1,4 +1,4 @@
-package com.taikang.healthcare.demo.service;
+package com.self.activity.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -8,11 +8,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
-import com.taikang.healthcare.demo.common.Constants;
-import com.taikang.healthcare.demo.model.Customer;
-import com.taikang.healthcare.demo.vo.QueryCustParam;
-import com.taikang.healthcare.sdk.bean.PageBean;
-import com.taikang.healthcare.sdk.bean.Result;
+
+import com.self.activity.common.Constants;
+import com.self.activity.model.Customer;
+import com.self.activity.sdk.bean.PageBean;
+import com.self.activity.sdk.bean.Result;
+import com.self.activity.vo.CustomerVO;
+import com.self.activity.vo.QueryCustParam;
 
 @Service("customerService")
 public class CustomerService {
@@ -20,7 +22,7 @@ public class CustomerService {
 	RestTemplate client;
 	
 	//@HystrixCommand(fallbackMethod = "registerhystrixMapParam")
-	public Result<Customer> register(Customer customer,HttpHeaders headers){
+	public Result<Customer> register(CustomerVO customer,HttpHeaders headers){
 		HttpEntity<?> requestEntity = new HttpEntity<>(customer,headers);
 		ResponseEntity<Result> response;
 		try {
@@ -33,7 +35,7 @@ public class CustomerService {
 		return response.getBody();
 	}
 	
-	public Result<Customer> registerhystrixMapParam(Customer customer,HttpHeaders headers)
+	public Result<Customer> registerhystrixMapParam(CustomerVO customer,HttpHeaders headers)
 	{
 		Result<Customer> result = new Result<Customer>("10003");
 		return result;
@@ -41,7 +43,7 @@ public class CustomerService {
 	
 	
 	//@HystrixCommand(fallbackMethod = "alterhystrixMapParam")
-	public Result<Customer> alter(Customer customer,HttpHeaders headers){
+	public Result<Customer> alter(CustomerVO customer,HttpHeaders headers){
 		HttpEntity<?> requestEntity = new HttpEntity<>(customer,headers);
 		ResponseEntity<Result> response;
 		try {
@@ -75,7 +77,7 @@ public class CustomerService {
 		return response.getBody();
 	}
 	
-	public Result<Customer> searchhystrixMapParam(Customer customer,HttpHeaders headers)
+	public Result<Customer> searchhystrixMapParam(QueryCustParam customer,HttpHeaders headers)
 	{
 		Result<Customer> result = new Result<Customer>("10008");
 		return result;
@@ -83,7 +85,7 @@ public class CustomerService {
 	
 	
 	//@HystrixCommand(fallbackMethod = "searchByIdhystrixMapParam")
-	public Result<Customer> searchById(Long id,HttpHeaders headers){
+	public Result<Customer> searchById(String id,HttpHeaders headers){
 		HttpEntity<?> requestEntity = new HttpEntity<>(null,headers);
 		ResponseEntity<Result> response;
 		try {
@@ -104,7 +106,7 @@ public class CustomerService {
 	
 	
 	//@HystrixCommand(fallbackMethod = "deletehystrixMapParam")
-	public Result<Long> delete(Long id,HttpHeaders headers){
+	public Result<Long> delete(String id,HttpHeaders headers){
 		HttpEntity<?> requestEntity = new HttpEntity<>(null,headers);
 		ResponseEntity<Result> response;
 		try {
@@ -125,9 +127,9 @@ public class CustomerService {
 	
 	
 	//@HystrixCommand(fallbackMethod = "searchCounthystrixMapParam")
-	public Result<PageBean> searchCount(Customer customer,HttpHeaders headers){
+	public Result<PageBean> searchCount(QueryCustParam customer,HttpHeaders headers){
 		HttpEntity<?> requestEntity = new HttpEntity<>(null,headers);
-		String url = Constants.CUSTOMER+"/count"+customer.toURL();
+		String url = Constants.CUSTOMER+"/count"+customer.toURL(null);
 		ResponseEntity<Result> response;
 		try {
 			response = client.exchange(

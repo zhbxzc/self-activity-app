@@ -1,11 +1,9 @@
-package com.taikang.healthcare.demo;
+package com.self.activity;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
@@ -18,20 +16,15 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter;
-import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.web.client.RestTemplate;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 /**
  * 边缘服务层的启动类
  * @author itw_huomb
  */
-@MapperScan("com.taikang.healthcare.cis.dig.dao")
 @EnableDiscoveryClient
 @EnableCircuitBreaker
 @SpringBootApplication
-public class ComDemoAppApplication
+public class SelfActivityAppApplication
 {
 	@Bean
 	Sampler sampler()
@@ -57,6 +50,6 @@ public class ComDemoAppApplication
 	}
 	public static void main(String[] args)
 	{
-		SpringApplication.run(ComDemoAppApplication.class, args);
+		SpringApplication.run(SelfActivityAppApplication.class, args);
 	}
 }

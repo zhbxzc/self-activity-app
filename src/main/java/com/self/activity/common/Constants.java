@@ -1,7 +1,7 @@
-package com.taikang.healthcare.demo.common;
+package com.self.activity.common;
 
 
 public class Constants {
-	public static final String SERVICEPATH="com-demo-domain-qyl";
-	public static final String CUSTOMER="http://"+SERVICEPATH+"/customer/domain/v1";
+	public static final String SERVICEPATH="self-activity-domain";
+	public static final String CUSTOMER="http://"+SERVICEPATH+"/cust/customer";
 }

@@ -1,4 +1,4 @@
-package com.taikang.healthcare.demo.controller;
+package com.self.activity.controller;
 
 import javax.annotation.Resource;
 import org.springframework.http.HttpHeaders;
@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.taikang.healthcare.demo.service.CustomerService;
-import com.taikang.healthcare.demo.vo.QueryCustParam;
-import com.taikang.healthcare.sdk.bean.PageBean;
-import com.taikang.healthcare.sdk.bean.Result;
-import com.taikang.healthcare.demo.model.Customer;
+import com.self.activity.model.Customer;
+import com.self.activity.sdk.bean.PageBean;
+import com.self.activity.sdk.bean.Result;
+import com.self.activity.service.CustomerService;
+import com.self.activity.vo.CustomerVO;
+import com.self.activity.vo.QueryCustParam;
 
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -36,7 +37,7 @@ public class CustomerController {
 		@ApiImplicitParam(name = "Content-Type", value = "内容类型", required = true,dataType="String",paramType="header",defaultValue="application/json; charset=UTF-8")
 	})
 	@RequestMapping(method=RequestMethod.POST,produces="application/json;charset='UTF-8'")
-	public Result<Customer> register(@RequestBody Customer customer,@RequestHeader HttpHeaders headers){
+	public Result<Customer> register(@RequestBody CustomerVO customer,@RequestHeader HttpHeaders headers){
 		Result<Customer> result = customerService.register(customer, headers);
 		return result;
 	}
@@ -51,8 +52,8 @@ public class CustomerController {
 		@ApiImplicitParam(name = "Accept-Charset", value = "接收字符集", required = true,dataType="String",paramType="header",defaultValue="utf-8"),
 		@ApiImplicitParam(name = "Content-Type", value = "内容类型", required = true,dataType="String",paramType="header",defaultValue="application/json; charset=UTF-8")
 	})
-	@RequestMapping(value="{id}",method=RequestMethod.PUT,produces="application/json;charset='UTF-8'")
-	public Result<Customer> alter(@PathVariable Long id,@RequestBody Customer customer,@RequestHeader HttpHeaders headers){
+	@RequestMapping(value="/{id}",method=RequestMethod.PUT,produces="application/json;charset='UTF-8'")
+	public Result<Customer> alter(@PathVariable String id,@RequestBody CustomerVO customer,@RequestHeader HttpHeaders headers){
 		customer.setId(id);
 		Result<Customer> result = customerService.alter(customer,headers);
 		return result;
@@ -62,7 +63,8 @@ public class CustomerController {
 		@ApiImplicitParam(name="name",required=false,value = "名称",dataType="String",paramType="query"),
 		@ApiImplicitParam(name="idCardNo",required=false,value = "身份证号",dataType="String",paramType="query"),
 		@ApiImplicitParam(name="email",required=false,value = "邮箱",dataType="String",paramType="query"),
-		@ApiImplicitParam(name="birthday",required=false,value = "出生日期",dataType="Date",paramType="query"),
+		@ApiImplicitParam(name="birthdayBegain",required=false,value = "出生日期开始",dataType="String",paramType="query"),
+		@ApiImplicitParam(name="birthdayEnd",required=false,value = "出生日期结束",dataType="String",paramType="query"),
 		@ApiImplicitParam(name="mobile",required=false,value = "移动电话",dataType="String",paramType="query"),
 		@ApiImplicitParam(name="tel",required=false,value = "固定电话",dataType="String",paramType="query"),
 		@ApiImplicitParam(name="nickname",required=false,value = "昵称",dataType="String",paramType="query"),
@@ -86,7 +88,8 @@ public class CustomerController {
 		@ApiImplicitParam(name="name",required=false,value = "姓名",dataType="String",paramType="query"),
 		@ApiImplicitParam(name="idCardNo",required=false,value = "身份证号",dataType="String",paramType="query"),
 		@ApiImplicitParam(name="email",required=false,value = "邮箱",dataType="String",paramType="query"),
-		@ApiImplicitParam(name="birthday",required=false,value = "出生日期",dataType="Date",paramType="query"),
+		@ApiImplicitParam(name="birthdayBegain",required=false,value = "出生日期开始",dataType="String",paramType="query"),
+		@ApiImplicitParam(name="birthdayEnd",required=false,value = "出生日期结束",dataType="String",paramType="query"),
 		@ApiImplicitParam(name="mobile",required=false,value = "移动电话",dataType="String",paramType="query"),
 		@ApiImplicitParam(name="tel",required=false,value = "固定电话",dataType="String",paramType="query"),
 		@ApiImplicitParam(name="nickname",required=false,value = "昵称",dataType="String",paramType="query"),
@@ -99,7 +102,7 @@ public class CustomerController {
 		@ApiImplicitParam(name = "Content-Type", value = "内容类型", required = true,dataType="String",paramType="header",defaultValue="application/json; charset=UTF-8")
 	})
 	@RequestMapping(value="/count",method=RequestMethod.GET,produces="application/json;charset='UTF-8'")
-	public Result<PageBean> searchCount(Customer customer,@RequestHeader HttpHeaders headers){
+	public Result<PageBean> searchCount(QueryCustParam customer,@RequestHeader HttpHeaders headers){
 		Result<PageBean> result = customerService.searchCount(customer,headers);
 		return result;
 	}
@@ -115,7 +118,7 @@ public class CustomerController {
 		@ApiImplicitParam(name = "Content-Type", value = "内容类型", required = true,dataType="String",paramType="header",defaultValue="application/json; charset=UTF-8")
 	})
 	@RequestMapping(value="/{id}",method=RequestMethod.GET,produces="application/json;charset='UTF-8'")
-	public Result<Customer> searchById(@PathVariable Long id,@RequestHeader HttpHeaders headers){
+	public Result<Customer> searchById(@PathVariable String id,@RequestHeader HttpHeaders headers){
 		Result<Customer> result = customerService.searchById(id,headers);
 		return result;
 	}
@@ -131,7 +134,7 @@ public class CustomerController {
 		@ApiImplicitParam(name = "Content-Type", value = "内容类型", required = true,dataType="String",paramType="header",defaultValue="application/json; charset=UTF-8")
 	})
 	@RequestMapping(value="/{id}",method=RequestMethod.DELETE,produces="application/json;charset='UTF-8'")
-	public Result<Long> delete(@PathVariable Long id,@RequestHeader HttpHeaders headers){
+	public Result<Long> delete(@PathVariable String id,@RequestHeader HttpHeaders headers){
 		Result<Long> result = customerService.delete(id,headers);
 		return result;
 	}
