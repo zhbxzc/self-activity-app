@@ -1,0 +1,54 @@
+---
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
+  datasource:
+    name: mydb
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://10.130.201.76:3306/custdb_test?zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: hie
+    password: tkylhie123
+    driverClassName: com.mysql.jdbc.Driver
+    minIdle: 10
+    maxActive: 2000
+    initialSize: 10
+    timeBetweenEvictionRunsMillis: 1800000
+    minEvictableIdleTimeMillis: 1800000
+    validationQuery: SELECT 1
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+  data:
+    mongodb:
+      uri: mongodb://10.130.201.163:27017/cust
+      host: liyang
+      port: liyang
+  rabbitmq:
+    host: 10.130.202.57
+    port: 5672
+    username: hie_cloud
+    password: hie_cloud123456
+    VirtualHost: tk-hie
+  solr:
+    host: http://127.0.0.1:8080/solr
+    zkHost: 127.0.0.1:8080
+    repositories.enabled: true
+    baseURL: http://127.0.0.1:8080/solr/mynode
+    defaultCollection: mynode
+eureka:
+  instance:
+    preferIpAddress: true
+    statusPageUrlPath: /info.html
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+security:
+  user:
+    name: admin
+    password: test
+logging:
+  config: classpath:logback.xml
+hystrix.command.default:
+  execution.isolation.thread.timeoutInMilliseconds: 10000   

@@ -1,0 +1,9 @@
+server:
+  port: 8015
+spring:
+  application:
+    name: self-activity-app
+    
+#应用层调用的服务地址
+service:
+  path: self-activity-domain

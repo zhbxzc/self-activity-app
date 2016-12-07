@@ -1,0 +1,156 @@
+.wrapper{
+	width: 90%;
+	height: 500px;
+	margin:  0 auto;
+	/*background: #A4BED4;*/
+	padding: 0;
+}
+.btn{ width: 100px;
+	  height: 28px;
+	  margin:10px 0 0 12px;
+  }
+ .active p{
+ 	  margin:18px 25px;
+      font-size: 12px;
+      float: left;
+ }
+
+
+.info{
+	height: 300px;
+  margin-top: 54px;
+  
+}
+.btn-default{
+	margin-left: -350px;
+}
+.confirm{
+	border-top:1px solid #E5DFDF;;
+}
+.container{
+  margin-top: 20px;
+  width: 100%;
+}
+.button{width: 100px;
+ height: 28px;
+ border: none;
+  margin:0px 80px;
+  color: #fff;
+  background-color: #2f96b4;
+  
+}
+.btn-default{
+	 margin-top:10px;
+}
+
+.table th{
+   font-family: 'ArialMT', 'Arial';
+  font-weight: 400;
+  font-size: 12px;
+  color: #555;
+ }
+
+.table td{
+  font-family: 'ArialMT', 'Arial';
+  font-weight: 400;
+  font-size: 12px;
+  overflow: hidden;
+  cursor: pointer;}
+   
+.btn-sm{
+	border:none;
+	padding: 4px 6px;
+}
+
+
+
+
+/*模态框*/
+.wrap{width:600px;
+}
+body{
+	font-family: "微软雅黑";
+}
+label{
+	font-weight: 500;
+}
+.control-label{
+	margin:14px 0 0 25px;
+}
+ .input-medium{
+ 	margin:14px 0 0 8px;
+ }
+ .medium{
+ margin-top:2px
+ }
+ .checkbox{
+	margin-left:48px;
+	float: left;
+}
+#myModal{
+	color:#646464;
+	top:50%;
+	height:400px;
+	transform: translateY(-50%);
+}
+.modal-content{
+	border: none;
+	border-top: 0px;
+	background: #fff;
+	height:210px;
+	margin: 0 auto;
+	position: initial;
+	border-radius: initial;
+}
+.modal-header{
+	padding-top:5px;
+	padding-bottom: 5px;
+	font-size: 12px;
+	padding-left: 10px;
+	background:#fff;
+	
+}
+.modal-body{
+	padding:0px;
+	padding-left: 10px;
+	padding-bottom: 20px;
+}
+.modal-body table{
+	width:100%;
+	margin:0;
+	padding:0;
+	margin-top:12px;
+}
+.modal-footer{
+	background: #fff;
+	height: 63px;
+	margin: 0 auto;
+	border-top: 1px solid #ccc;
+}
+.modal-dialog{
+	height:200px;
+	width:410px;
+	background: #fff;
+	margin-bottom:0px;
+}
+.table{
+	table-layout: fixed;
+}
+.table tbody tr td{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+}
+.selectsi{
+	margin-left:5px;
+	height: 26px;
+}
+.selectif{
+	margin-left:7px;
+	height: 25px;
+}
+
+
+
+
+

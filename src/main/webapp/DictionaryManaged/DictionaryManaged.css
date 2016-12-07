@@ -1,0 +1,56 @@
+.wrapper{
+	width: 90%;
+	height: 500px;
+	margin:  0 auto;
+	/*background: #A4BED4;*/
+	padding: 0;
+}
+.btn{ width: 100px;
+	  height: 28px;
+	  padding: 0px 12px;
+	  margin-left: 100px;
+  }
+ .active p{
+ 	  margin: 20px 41px;
+      font-size: 12px;
+      float: left;
+ }
+
+.info{
+	height: 300px;
+  margin-top: 54px;
+  
+}
+.btn-default{
+	margin-left: -350px;
+}
+.confirm{
+	border-top:1px solid #E5DFDF;;
+}
+.container{
+  margin-top: 20px;
+  width: 100%;
+}
+.btn-seach{
+	  background-color: rgb(51, 150, 245);
+	  color:#fff;
+	  padding: 4px;
+}
+.btn-default{
+	 margin-top:10px;
+}
+
+.table th{
+   font-family: 'ArialMT', 'Arial';
+  font-weight: 400;
+  font-size: 12px;
+  color: #555;
+ }
+
+.table td{
+  font-family: 'ArialMT', 'Arial';
+  font-weight: 400;
+  font-size: 12px;
+   overflow: hidden;
+  
+}

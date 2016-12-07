@@ -1,0 +1,38 @@
+<div class="content-container2" >
+					<div class="confirm">
+						
+						<div class="pull-right pull-right-btn">
+							<button class="btn btn-info but" type="submit">诊断别名</button>
+							<button class="btn btn-info but" ng-click="saveFavoriteUser(item)">保存</button>
+						</div>
+					</div>
+				</div>
+				<div>
+					<table class="table table-bordered cont-right-table1 fontColor tableStyle">
+					   
+					   <thead>
+					      <tr>
+					         <th>诊断名称</th>
+					         <th>编码</th>
+					         <th>备注</th>
+					         <th class="tdwidth1">删除</th>
+					      </tr>
+					   </thead>
+					   <tbody id = "favoriteUserList">
+					   		<tr ng-repeat="i in item track by $index" ng-init="parentIndex=$index">
+					   			 <td style="position: relative;">
+									<input type="text" value="" name="input" ng-model="i.name" ng-focus="focus(i,$index)" ng-blur="blur()" ng-change="calculate(i,$index)" ng-click="avoid($event)"/>
+										<ul ng-show="show.value == $index" class="ul1" >
+											<li ng-repeat="ite in ittm track by $index" ng-click="click(i,ite,$index,$event)" ng-mouseover="mouseover($index)" ng-mouseout="mouseout($index)" ng-class="{'activeLi':act.judge==$index}">{{ite.name+" ("+ite.icd_code+")"}}</li>
+											<li>
+											<button ng-show="btndisplay"  class="btncommon" ng-click="downloadmore(parentIndex,$event)">下一页</button>
+										</li>
+										</ul>
+						         </td>
+						         <td>{{i.icd_code}}</td>
+						         <td>{{i.add_info}}</td>
+						         <td class="text-center" ng-click="deleteFavoriteUser(i)"><span class="bg" ng-click="remove($index)"></span></td>
+					    	</tr>
+					   </tbody>
+					</table>
+				</div>

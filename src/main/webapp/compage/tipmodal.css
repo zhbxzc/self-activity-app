@@ -1,0 +1,144 @@
+@CHARSET "UTF-8";
+#delete{
+	display:none;
+  	overflow: hidden;
+ 	position: fixed;
+ 	top: 0;
+ 	right: 0;
+	bottom: 0;
+ 	left: 0;
+ 	opacity:1;
+ 	z-index: 1111;
+	-webkit-overflow-scrolling: touch;
+}
+#dialog{
+  position: relative;
+  width: 390px;
+  margin: 30px auto;
+}
+#content{
+	width:390px;
+	height:206px;
+	box-shadow:0 5px 15px rgba(0, 0, 0, .5);
+	position: relative;
+ 	background-color: #fff;
+  	-webkit-background-clip: padding-box;
+    background-clip: padding-box;
+  	border: 1px solid #999;
+  	border: 1px solid rgba(0, 0, 0, .2);
+  	border-radius: 4px;
+  	outline: 0;
+  	-webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+}
+#header{
+	margin-top: -2px;
+	height:40px;
+	background-color:#f5f5f5;
+	border-radius: 4px;
+	margin-bottom:0px;
+	min-height:16.42857143px;
+	padding:15px;
+	border-bottom:1px solid #e5e5e5;
+	
+}
+#deleteLabel{
+	font-weight:bold;
+	color:#333333;
+	margin-top: -10px;
+	height: 30px;
+	margin: 0px;
+	line-height: 12px;
+}
+#deleteInfo{
+	height:166px;
+}
+#image{
+	height:104px;
+	margin-left:0px!important;
+	margin-right:0px!important;
+	margin-bottom:0px;
+}
+#delete_content{
+	font-weight:normal;
+	margin-top:45px;
+	margin-bottom:40px;
+	margin-left:64px;
+	text-align:left;
+	padding-left: 15px;
+    padding-right: 15px;
+}
+#delete_content lable{
+	color: red;
+}
+#footer{
+	height:62px;
+	padding: 15px;
+	text-align: right;
+	border-top: 1px solid #e5e5e5;
+}
+#confirm{
+	margin-left:168px;
+	right:10px;
+	background-color:#4692de;
+	font-size:12px;
+	color:#fff;
+}
+#confirm:hover{
+	margin-left:168px;
+	right:10px;
+	background-color:#237AD0;
+	font-size:12px;
+	color:#fff;
+	border-color:#2e6da4;
+} 
+#cancel{
+	background-color:#ededed;
+	font-size:12px;
+	color:#333;
+}
+#cancel:hover{
+	background-color:#ededed;
+	font-size:12px;
+	border-color:#ccc;
+}
+.delete-img{
+	float:left;
+	top:79px;
+	left:44px;
+	position:absolute;
+}
+.alert{
+	position: fixed;
+	left: 40%;
+	top: 8%;
+	min-width: 180px;
+	padding: 10px;
+	display: none;
+	text-align: center;
+	line-height: 1.5;
+	font-size: 14px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	box-shadow: 2px 2px 10px #c0c0c0;
+	z-index: 9999;
+}
+.alert-success{
+	color: #3c763d;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+}
+.alert-info{
+	color: #31708f;
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+}
+.alert-warning{
+	color: #8a6d3b;
+	background-color: #fcf8e3;
+	border-color: #faebcc;
+}
+.alert-danger{
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+}
