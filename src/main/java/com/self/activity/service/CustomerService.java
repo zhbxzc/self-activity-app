@@ -1,5 +1,7 @@
 package com.self.activity.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -15,6 +17,7 @@ import com.self.activity.sdk.bean.PageBean;
 import com.self.activity.sdk.bean.Result;
 import com.self.activity.vo.CustomerVO;
 import com.self.activity.vo.QueryCustParam;
+import com.self.activity.vo.QueryCustResult;
 
 @Service("customerService")
 public class CustomerService {
@@ -145,5 +148,18 @@ public class CustomerService {
 	{
 		Result result = new Result("10010");
 		return result;
+	}
+	public Result<List<QueryCustResult>> searchCust(QueryCustParam custparam,PageBean pageBean,HttpHeaders headers){
+		HttpEntity<?> requestEntity = new HttpEntity<>(null,headers);
+		String url = Constants.CUSTOMER+"/searchCust"+custparam.toURL(pageBean);
+		ResponseEntity<Result> response;
+		try {
+			response = client.exchange(
+					url, HttpMethod.GET, requestEntity,
+					Result.class);
+		} catch (RestClientException e) {
+			return new Result<List<QueryCustResult>>("10008", e);
+		}
+		return response.getBody();
 	}
 }
