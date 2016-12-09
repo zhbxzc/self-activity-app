@@ -164,6 +164,7 @@ public class CustomerController {
 	@RequestMapping(value="/customer/searchCust",method=RequestMethod.GET,produces="application/json;charset='UTF-8'")
 	public Result<List<QueryCustResult>> searchCust(QueryCustParam custparam,PageBean pageBean,@RequestHeader HttpHeaders headers){
 		Result<List<QueryCustResult>> result = customerService.searchCust(custparam, pageBean,headers);
+		System.out.println(result.getData());
 		return result;
 	}
 }
