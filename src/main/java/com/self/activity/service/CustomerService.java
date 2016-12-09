@@ -15,6 +15,7 @@ import com.self.activity.common.Constants;
 import com.self.activity.model.Customer;
 import com.self.activity.sdk.bean.PageBean;
 import com.self.activity.sdk.bean.Result;
+import com.self.activity.sdk.util.URLUtil;
 import com.self.activity.vo.CustomerVO;
 import com.self.activity.vo.QueryCustParam;
 import com.self.activity.vo.QueryCustResult;
@@ -68,7 +69,7 @@ public class CustomerService {
 	//@HystrixCommand(fallbackMethod = "searchhystrixMapParam")
 	public Result<Customer> search(QueryCustParam custparam,PageBean pageBean,HttpHeaders headers){
 		HttpEntity<?> requestEntity = new HttpEntity<>(null,headers);
-		String url = Constants.CUSTOMER+custparam.toURL(pageBean);
+		String url = Constants.CUSTOMER+URLUtil.toUrl(custparam, pageBean);
 		ResponseEntity<Result> response;
 		try {
 			response = client.exchange(
@@ -151,7 +152,7 @@ public class CustomerService {
 	}
 	public Result<List<QueryCustResult>> searchCust(QueryCustParam custparam,PageBean pageBean,HttpHeaders headers){
 		HttpEntity<?> requestEntity = new HttpEntity<>(null,headers);
-		String url = Constants.CUSTOMER+"/searchCust"+custparam.toURL(pageBean);
+		String url = Constants.CUSTOMER+"/searchCust"+URLUtil.toUrl(custparam, pageBean);
 		ResponseEntity<Result> response;
 		try {
 			response = client.exchange(
