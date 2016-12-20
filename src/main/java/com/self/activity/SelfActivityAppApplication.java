@@ -14,13 +14,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.http.converter.json.GsonHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
-
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import com.self.activity.common.Convert;
 /**
  * 边缘服务层的启动类
  * @author itw_huomb
