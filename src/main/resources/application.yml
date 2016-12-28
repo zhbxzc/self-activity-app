@@ -6,15 +6,15 @@ spring:
   rabbitmq:
     host: localhost
     port: 5672
-    username: qianyanglong
-    password: wansui
-    virtual-host: qianyanglongdexuniji
+    username: zhb
+    password: zhb
+    virtual-host: cloud-zhb
 eureka:
   instance:
     preferIpAddress: true
     statusPageUrlPath: /swagger-ui.html
   client:
     serviceUrl:
-      defaultZone: http://localhost:20000/eureka/
+      defaultZone: http://localhost:8761/eureka/
 hystrix.command.default:
   execution.isolation.thread.timeoutInMilliseconds: 10000   
