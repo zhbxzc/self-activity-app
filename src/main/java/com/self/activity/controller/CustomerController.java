@@ -19,10 +19,11 @@ import com.self.activity.vo.CustomerVO;
 import com.self.activity.vo.QueryCustParam;
 import com.self.activity.vo.QueryCustResult;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-
+@Api(description="客户管理")
 @RestController
 @RequestMapping("customer/app/v1")
 public class CustomerController {
