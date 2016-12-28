@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD HTML 4.01 Strict//EN' 'http://www.w3.org/TR/html4/strict.dtd'>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+<title>天王在此，百事不忌</title>
+<script type="text/javascript" src="jquery-3.1.1.js" ></script>
+<script type="text/javascript" src="sisyphus.js" ></script>
+<script type="text/javascript" src="test.js" ></script>
+</head>
+<body>
+<strong>经验证：可以直接缓存的有文本框,下拉框,复选框<br>未能缓存的有密码框，文件上传框，单选框</strong>
+<form id="aaa">
+	aa:<input nae="name" id="aa" /><br>
+	bb:<input type="password" name="password" id="bb" /><br>
+	cc:<select id="cc">
+		<option value="1" >hahaha111111</option>
+		<option value="2">hahaha222222</option>
+		<option value="3">hahaha333333</option>
+		<option value="4">hahaha444444</option>
+		<option value="5">hahaha555555</option>
+	</select><br>
+	dd:<input type="checkbox" name="dd" value="111" id="c1" >哈哈11
+	<input type="checkbox" name="dd" value="222" id="c2" checked="checked" >哈哈22
+	<input type="checkbox" name="dd" value="333" id="c3" >哈哈33
+	<input type="checkbox" name="dd" value="444" id="c4" >哈哈44
+	<input type="checkbox" name="dd" value="555" id="c5" >哈哈55<br>
+	ee:<input type="radio" name="ee" value="11" id="r1" >呵呵11
+	<input type="radio" name="ee" value="22" id="r2" >呵呵22
+	<input type="radio" name="ee" value="33" id="r3" >呵呵33
+	<input type="radio" name="ee" value="44" id="r4" >呵呵44
+	<input type="radio" name="ee" value="55" id="r5" >呵呵55<br>
+	ff:<input type="file" name="ff" id="ff123" /><br>
+	gg:<textarea rows="1" cols="20" name="gg" id="gg"></textarea>
+	<button type="button" onclick="test()" >hehe</button>
+</form>
+</body>
+</html>
